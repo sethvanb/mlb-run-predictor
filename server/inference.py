@@ -10,12 +10,13 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct']
 
 def inference():
-    print("hi")
-#   current_date = dt.date.today()
+  current_date = dt.date.today()
 
-#   # Get Away Teams Next Game Data
-#   data = pybb.schedule_and_record(current_date.year, sys.argv[1])
-#   nextHomeIndex = data[data.GB.isnull()].head(1).index[0] - 1
+  # Get Away Teams Next Game Data
+  data = pybb.schedule_and_record(current_date.year, sys.argv[1])
+  nextHomeIndex = data[data.GB.isnull()].head(1).index[0] - 1
+
+  print("hi")
 
 #   data["Wins"] = 1
 #   data["Losses"] = 0
