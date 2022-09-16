@@ -160,74 +160,74 @@ def inference():
     elif i == 0:
         data2.iat[i, 25] = data2["R5"].mean()
 
-  data2["R7"] = np.nan
-  for i in range(len(data2)-1, -1, -1):
-    if i >= 7:
-        data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5])/7
-    elif i == 6:
-        data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5])/6
-    elif i == 5:
-        data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5])/5
-    elif i == 4:
-        data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5])/4
-    elif i == 3:
-        data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5])/3
-    elif i == 2:
-        data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5])/2
-    elif i == 1:
-        data2.iat[i, 26] = data2.iat[i-1, 5]
-    elif i == 0:
-        data2.iat[i, 26] = data2["R7"].mean()
+  print("hi")
 
-  data2["R10"] = np.nan
-  for i in range(len(data2)-1, -1, -1):
-    if i >= 10:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5] + data2.iat[i-8, 5] + data2.iat[i-9, 5] + data2.iat[i-10, 5])/10
-    elif i == 9:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5] + data2.iat[i-8, 5] + data2.iat[i-9, 5])/9
-    elif i == 8:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5] + data2.iat[i-8, 5])/8
-    elif i == 7:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5])/7
-    elif i == 6:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5])/6
-    elif i == 5:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5])/5
-    elif i == 4:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5])/4
-    elif i == 3:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5])/3
-    elif i == 2:
-        data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5])/2
-    elif i == 1:
-        data2.iat[i, 27] = data2.iat[i-1, 5]
-    elif i == 0:
-        data2.iat[i, 27] = data2["R10"].mean()
+#   data2["R7"] = np.nan
+#   for i in range(len(data2)-1, -1, -1):
+#     if i >= 7:
+#         data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5])/7
+#     elif i == 6:
+#         data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5])/6
+#     elif i == 5:
+#         data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5])/5
+#     elif i == 4:
+#         data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5])/4
+#     elif i == 3:
+#         data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5])/3
+#     elif i == 2:
+#         data2.iat[i, 26] = (data2.iat[i-1, 5] + data2.iat[i-2, 5])/2
+#     elif i == 1:
+#         data2.iat[i, 26] = data2.iat[i-1, 5]
+#     elif i == 0:
+#         data2.iat[i, 26] = data2["R7"].mean()
 
-  data2 = data2.drop(columns=['R', 'Tm', 'Opp', 'W/L', 'Inn', 'RA', 'Win', 'Loss', 'Save', 'Time', 'Attendance', 'cLI', 'Orig. Scheduled', 'D/N', 'Streak', 'Rank', 'GB'])
+#   data2["R10"] = np.nan
+#   for i in range(len(data2)-1, -1, -1):
+#     if i >= 10:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5] + data2.iat[i-8, 5] + data2.iat[i-9, 5] + data2.iat[i-10, 5])/10
+#     elif i == 9:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5] + data2.iat[i-8, 5] + data2.iat[i-9, 5])/9
+#     elif i == 8:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5] + data2.iat[i-8, 5])/8
+#     elif i == 7:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5] + data2.iat[i-7, 5])/7
+#     elif i == 6:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5] + data2.iat[i-6, 5])/6
+#     elif i == 5:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5] + data2.iat[i-5, 5])/5
+#     elif i == 4:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5] + data2.iat[i-4, 5])/4
+#     elif i == 3:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5] + data2.iat[i-3, 5])/3
+#     elif i == 2:
+#         data2.iat[i, 27] = (data2.iat[i-1, 5] + data2.iat[i-2, 5])/2
+#     elif i == 1:
+#         data2.iat[i, 27] = data2.iat[i-1, 5]
+#     elif i == 0:
+#         data2.iat[i, 27] = data2["R10"].mean()
 
-  if data2.iat[nextAwayIndex, 0] == data2.iat[nextAwayIndex+1, 0] or data2.iat[nextAwayIndex, 0] == data2.iat[nextAwayIndex-1, 0]:
-    data2.iat[nextAwayIndex, 5] == 1
-  d = data2.iat[nextAwayIndex, 0]
-  month = d[d.find(',')+2:d.find(',')+5]
-  if d.find('(') == -1:
-    day = d[d.find(',')+6:len(d)]
-  else:
-    day = d[d.find(',')+6:d.find('(')]
-  date = dt.datetime(current_date.year, months.index(month)+1, int(day))
-  data2.iat[nextAwayIndex, 0] = int(date.strftime("%Y%m%d"))
-  data2.iat[nextAwayIndex, 1] = 0 if data2.iat[nextAwayIndex, 1] == 'Home' else 1
-  wl = data2.iat[nextAwayIndex-1, 2] 
-  wins = float(wl[0:wl.find('-')])
-  losses = float(wl[wl.find('-')+1:len(wl)])
-  if losses != 0:
-    data2.iat[nextAwayIndex, 2] = wins/losses
-  else:
-    data2.iat[nextAwayIndex, 2] = wins
-  data2.iat[nextAwayIndex, 3] = wins
-  data2.iat[nextAwayIndex, 4] = losses
+#   data2 = data2.drop(columns=['R', 'Tm', 'Opp', 'W/L', 'Inn', 'RA', 'Win', 'Loss', 'Save', 'Time', 'Attendance', 'cLI', 'Orig. Scheduled', 'D/N', 'Streak', 'Rank', 'GB'])
 
-print("hi")
+#   if data2.iat[nextAwayIndex, 0] == data2.iat[nextAwayIndex+1, 0] or data2.iat[nextAwayIndex, 0] == data2.iat[nextAwayIndex-1, 0]:
+#     data2.iat[nextAwayIndex, 5] == 1
+#   d = data2.iat[nextAwayIndex, 0]
+#   month = d[d.find(',')+2:d.find(',')+5]
+#   if d.find('(') == -1:
+#     day = d[d.find(',')+6:len(d)]
+#   else:
+#     day = d[d.find(',')+6:d.find('(')]
+#   date = dt.datetime(current_date.year, months.index(month)+1, int(day))
+#   data2.iat[nextAwayIndex, 0] = int(date.strftime("%Y%m%d"))
+#   data2.iat[nextAwayIndex, 1] = 0 if data2.iat[nextAwayIndex, 1] == 'Home' else 1
+#   wl = data2.iat[nextAwayIndex-1, 2] 
+#   wins = float(wl[0:wl.find('-')])
+#   losses = float(wl[wl.find('-')+1:len(wl)])
+#   if losses != 0:
+#     data2.iat[nextAwayIndex, 2] = wins/losses
+#   else:
+#     data2.iat[nextAwayIndex, 2] = wins
+#   data2.iat[nextAwayIndex, 3] = wins
+#   data2.iat[nextAwayIndex, 4] = losses
 
 #   teamTags = ['ARI', 'ATL', 'BAL', 'BOS', 'CHC', 'CHW', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAA', 'LAD', 'MIA', 'MIL', 'MIN', 'NYM', 'NYY', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'STL', 'TBR', 'TEX', 'TOR']
 #   oppTags = ['OPP_ARI', 'OPP_ATL', 'OPP_BAL', 'OPP_BOS', 'OPP_CHC', 'OPP_CHW', 'OPP_CIN', 'OPP_CLE', 'OPP_COL', 'OPP_DET', 'OPP_HOU', 'OPP_KCR', 'OPP_LAA', 'OPP_LAD', 'OPP_MIA', 'OPP_MIL', 'OPP_MIN', 'OPP_NYM', 'OPP_NYY', 'OPP_OAK', 'OPP_PHI', 'OPP_PIT', 'OPP_SDP', 'OPP_SEA', 'OPP_SFG', 'OPP_STL', 'OPP_TBR', 'OPP_TEX', 'OPP_TOR']
