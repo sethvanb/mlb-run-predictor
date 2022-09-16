@@ -13,27 +13,27 @@ function App() {
     setFormData({homeTeam: event.target.value.substr(0, 3), awayTeam: event.target.value.substr(4, 3)});
   }
 
-  // React.useEffect(() => {
-  //   if(options.length === 0){
-  //     fetch("http://localhost:3003/api/games")
-  //     .then((res) => res.json())
-  //     .then((data) => setOptions(JSON.parse(data[0].replace(/'/g, "\"")).results));
-  //   }
-  // });
+  React.useEffect(() => {
+    if(options.length === 0){
+      fetch("http://localhost:3003/api/games")
+      .then((res) => res.json())
+      .then((data) => setOptions(JSON.parse(data[0].replace(/'/g, "\"")).results));
+    }
+  });
 
-  // React.useEffect(() => {
-  //   if(formData.homeTeam !== "" && formData.awayTeam !== ""){
-  //     fetch("http://localhost:3003/api/predict?homeTeam=" + formData.homeTeam + "&awayTeam=" + formData.awayTeam)
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data.results));
-  //   }
-  // }, [formData]);
+  React.useEffect(() => {
+    if(formData.homeTeam !== "" && formData.awayTeam !== ""){
+      fetch("http://localhost:3003/api/predict?homeTeam=" + formData.homeTeam + "&awayTeam=" + formData.awayTeam)
+      .then((res) => res.json())
+      .then((data) => setData(data.results));
+    }
+  }, [formData]);
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>MLB Run Predictor</h1>
-        {/* { options.length ? (
+        { options.length ? (
         <form>          
           <label htmlFor="game">Select A Game</label>
           <br />
@@ -53,7 +53,7 @@ function App() {
           <p>{!data ? "Loading..." :  formData.awayTeam + " " + data[1]}</p>
         </div>)
         : (<div></div>)
-        } */}
+        }
       </header>
     </div>
   );
