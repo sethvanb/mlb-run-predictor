@@ -12,21 +12,22 @@ function App() {
     setSelected(event.target.value);
     setFormData({homeTeam: event.target.value.substr(0, 3), awayTeam: event.target.value.substr(4, 3)});
   }
-  React.useEffect(() => {
-    if(options.length === 0){
-      fetch("http://localhost:3003/api/games")
-      .then((res) => res.json())
-      .then((data) => setOptions(JSON.parse(data[0].replace(/'/g, "\"")).results));
-    }
-  });
 
-  React.useEffect(() => {
-    if(formData.homeTeam !== "" && formData.awayTeam !== ""){
-      fetch("http://localhost:3003/api/predict?homeTeam=" + formData.homeTeam + "&awayTeam=" + formData.awayTeam)
-      .then((res) => res.json())
-      .then((data) => setData(data.results));
-    }
-  }, [formData]);
+  // React.useEffect(() => {
+  //   if(options.length === 0){
+  //     fetch("http://localhost:3003/api/games")
+  //     .then((res) => res.json())
+  //     .then((data) => setOptions(JSON.parse(data[0].replace(/'/g, "\"")).results));
+  //   }
+  // });
+
+  // React.useEffect(() => {
+  //   if(formData.homeTeam !== "" && formData.awayTeam !== ""){
+  //     fetch("http://localhost:3003/api/predict?homeTeam=" + formData.homeTeam + "&awayTeam=" + formData.awayTeam)
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data.results));
+  //   }
+  // }, [formData]);
 
   return (
     <div className="App">
