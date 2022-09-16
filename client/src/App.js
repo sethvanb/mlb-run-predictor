@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>MLB Run Predictor</h1>
-        { options.length ? (
+        {/* { options.length ? (
         <form>          
           <label htmlFor="game">Select A Game</label>
           <br />
@@ -52,7 +52,7 @@ function App() {
           <p>{!data ? "Loading..." :  formData.awayTeam + " " + data[1]}</p>
         </div>)
         : (<div></div>)
-        }
+        } */}
       </header>
     </div>
   );
