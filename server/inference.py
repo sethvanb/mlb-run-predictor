@@ -125,7 +125,7 @@ def inference():
     data[tag] = 0
   data._set_value(nextHomeIndex+1, 'OPP_' + sys.argv[2], 1)
 
-  print("hi2")
+  print("hi3")
 
 #   # Get Away Teams Next Game Data
 #   data2 = pybb.schedule_and_record(current_date.year, sys.argv[2])
