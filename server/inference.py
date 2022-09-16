@@ -16,116 +16,116 @@ def inference():
   data = pybb.schedule_and_record(current_date.year, sys.argv[1])
   nextHomeIndex = data[data.GB.isnull()].head(1).index[0] - 1
 
-  print("hi")
+  data["Wins"] = 1
+  data["Losses"] = 0
+  data["DoubleHeader"] = 0
+  data = data.assign(R1=data["R"])
+  data["R1"] = data["R1"].shift(periods=1, fill_value=data["R"].mean())
+  data["R3"] = np.nan
+  for i in range(len(data)-1, -1, -1):
+    if i >= 3:
+        data.iat[i, 24] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
+    elif i == 2:
+        data.iat[i, 24] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
+    elif i == 1:
+        data.iat[i, 24] = data.iat[i-1, 5]
+    elif i == 0:
+        data.iat[i, 24] = data["R3"].mean()
 
-#   data["Wins"] = 1
-#   data["Losses"] = 0
-#   data["DoubleHeader"] = 0
-#   data = data.assign(R1=data["R"])
-#   data["R1"] = data["R1"].shift(periods=1, fill_value=data["R"].mean())
-#   data["R3"] = np.nan
-#   for i in range(len(data)-1, -1, -1):
-#     if i >= 3:
-#         data.iat[i, 24] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
-#     elif i == 2:
-#         data.iat[i, 24] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
-#     elif i == 1:
-#         data.iat[i, 24] = data.iat[i-1, 5]
-#     elif i == 0:
-#         data.iat[i, 24] = data["R3"].mean()
+  data["R5"] = np.nan
+  for i in range(len(data)-1, -1, -1):
+    if i >= 5:
+        data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5])/5
+    elif i == 4:
+        data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5])/4
+    elif i == 3:
+        data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
+    elif i == 2:
+        data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
+    elif i == 1:
+        data.iat[i, 25] = data.iat[i-1, 5]
+    elif i == 0:
+        data.iat[i, 25] = data["R5"].mean()
 
-#   data["R5"] = np.nan
-#   for i in range(len(data)-1, -1, -1):
-#     if i >= 5:
-#         data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5])/5
-#     elif i == 4:
-#         data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5])/4
-#     elif i == 3:
-#         data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
-#     elif i == 2:
-#         data.iat[i, 25] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
-#     elif i == 1:
-#         data.iat[i, 25] = data.iat[i-1, 5]
-#     elif i == 0:
-#         data.iat[i, 25] = data["R5"].mean()
+  data["R7"] = np.nan
+  for i in range(len(data)-1, -1, -1):
+    if i >= 7:
+        data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5])/7
+    elif i == 6:
+        data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5])/6
+    elif i == 5:
+        data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5])/5
+    elif i == 4:
+        data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5])/4
+    elif i == 3:
+        data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
+    elif i == 2:
+        data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
+    elif i == 1:
+        data.iat[i, 26] = data.iat[i-1, 5]
+    elif i == 0:
+        data.iat[i, 26] = data["R7"].mean()
 
-#   data["R7"] = np.nan
-#   for i in range(len(data)-1, -1, -1):
-#     if i >= 7:
-#         data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5])/7
-#     elif i == 6:
-#         data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5])/6
-#     elif i == 5:
-#         data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5])/5
-#     elif i == 4:
-#         data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5])/4
-#     elif i == 3:
-#         data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
-#     elif i == 2:
-#         data.iat[i, 26] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
-#     elif i == 1:
-#         data.iat[i, 26] = data.iat[i-1, 5]
-#     elif i == 0:
-#         data.iat[i, 26] = data["R7"].mean()
+  data["R10"] = np.nan
+  for i in range(len(data)-1, -1, -1):
+    if i >= 10:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5] + data.iat[i-8, 5] + data.iat[i-9, 5] + data.iat[i-10, 5])/10
+    elif i == 9:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5] + data.iat[i-8, 5] + data.iat[i-9, 5])/9
+    elif i == 8:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5] + data.iat[i-8, 5])/8
+    elif i == 7:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5])/7
+    elif i == 6:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5])/6
+    elif i == 5:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5])/5
+    elif i == 4:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5])/4
+    elif i == 3:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
+    elif i == 2:
+        data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
+    elif i == 1:
+        data.iat[i, 27] = data.iat[i-1, 5]
+    elif i == 0:
+        data.iat[i, 27] = data["R10"].mean()
 
-#   data["R10"] = np.nan
-#   for i in range(len(data)-1, -1, -1):
-#     if i >= 10:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5] + data.iat[i-8, 5] + data.iat[i-9, 5] + data.iat[i-10, 5])/10
-#     elif i == 9:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5] + data.iat[i-8, 5] + data.iat[i-9, 5])/9
-#     elif i == 8:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5] + data.iat[i-8, 5])/8
-#     elif i == 7:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5] + data.iat[i-7, 5])/7
-#     elif i == 6:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5] + data.iat[i-6, 5])/6
-#     elif i == 5:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5] + data.iat[i-5, 5])/5
-#     elif i == 4:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5] + data.iat[i-4, 5])/4
-#     elif i == 3:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5] + data.iat[i-3, 5])/3
-#     elif i == 2:
-#         data.iat[i, 27] = (data.iat[i-1, 5] + data.iat[i-2, 5])/2
-#     elif i == 1:
-#         data.iat[i, 27] = data.iat[i-1, 5]
-#     elif i == 0:
-#         data.iat[i, 27] = data["R10"].mean()
+  data = data.drop(columns=['R', 'Tm', 'Opp', 'W/L', 'Inn', 'RA', 'Win', 'Loss', 'Save', 'Time', 'Attendance', 'cLI', 'Orig. Scheduled', 'D/N', 'Streak', 'Rank', 'GB'])
 
-#   data = data.drop(columns=['R', 'Tm', 'Opp', 'W/L', 'Inn', 'RA', 'Win', 'Loss', 'Save', 'Time', 'Attendance', 'cLI', 'Orig. Scheduled', 'D/N', 'Streak', 'Rank', 'GB'])
+  if data.iat[nextHomeIndex, 0] == data.iat[nextHomeIndex+1, 0] or data.iat[nextHomeIndex, 0] == data.iat[nextHomeIndex-1, 0]:
+    data.iat[nextHomeIndex, 5] == 1
+  d = data.iat[nextHomeIndex, 0]
+  month = d[d.find(',')+2:d.find(',')+5]
+  if d.find('(') == -1:
+    day = d[d.find(',')+6:len(d)]
+  else:
+    day = d[d.find(',')+6:d.find('(')]
+  date = dt.datetime(current_date.year, months.index(month)+1, int(day))
+  data.iat[nextHomeIndex, 0] = int(date.strftime("%Y%m%d"))
+  data.iat[nextHomeIndex, 1] = 0 if data.iat[nextHomeIndex, 1] == 'Home' else 1
+  wl = data.iat[nextHomeIndex-1, 2] 
+  wins = float(wl[0:wl.find('-')])
+  losses = float(wl[wl.find('-')+1:len(wl)])
+  if losses != 0:
+    data.iat[nextHomeIndex, 2] = wins/losses
+  else:
+    data.iat[nextHomeIndex, 2] = wins
+  data.iat[nextHomeIndex, 3] = wins
+  data.iat[nextHomeIndex, 4] = losses
 
-#   if data.iat[nextHomeIndex, 0] == data.iat[nextHomeIndex+1, 0] or data.iat[nextHomeIndex, 0] == data.iat[nextHomeIndex-1, 0]:
-#     data.iat[nextHomeIndex, 5] == 1
-#   d = data.iat[nextHomeIndex, 0]
-#   month = d[d.find(',')+2:d.find(',')+5]
-#   if d.find('(') == -1:
-#     day = d[d.find(',')+6:len(d)]
-#   else:
-#     day = d[d.find(',')+6:d.find('(')]
-#   date = dt.datetime(current_date.year, months.index(month)+1, int(day))
-#   data.iat[nextHomeIndex, 0] = int(date.strftime("%Y%m%d"))
-#   data.iat[nextHomeIndex, 1] = 0 if data.iat[nextHomeIndex, 1] == 'Home' else 1
-#   wl = data.iat[nextHomeIndex-1, 2] 
-#   wins = float(wl[0:wl.find('-')])
-#   losses = float(wl[wl.find('-')+1:len(wl)])
-#   if losses != 0:
-#     data.iat[nextHomeIndex, 2] = wins/losses
-#   else:
-#     data.iat[nextHomeIndex, 2] = wins
-#   data.iat[nextHomeIndex, 3] = wins
-#   data.iat[nextHomeIndex, 4] = losses
+  teamTags = ['ARI', 'ATL', 'BAL', 'BOS', 'CHC', 'CHW', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAA', 'LAD', 'MIA', 'MIL', 'MIN', 'NYM', 'NYY', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'STL', 'TBR', 'TEX', 'TOR']
+  oppTags = ['OPP_ARI', 'OPP_ATL', 'OPP_BAL', 'OPP_BOS', 'OPP_CHC', 'OPP_CHW', 'OPP_CIN', 'OPP_CLE', 'OPP_COL', 'OPP_DET', 'OPP_HOU', 'OPP_KCR', 'OPP_LAA', 'OPP_LAD', 'OPP_MIA', 'OPP_MIL', 'OPP_MIN', 'OPP_NYM', 'OPP_NYY', 'OPP_OAK', 'OPP_PHI', 'OPP_PIT', 'OPP_SDP', 'OPP_SEA', 'OPP_SFG', 'OPP_STL', 'OPP_TBR', 'OPP_TEX', 'OPP_TOR']
 
-#   teamTags = ['ARI', 'ATL', 'BAL', 'BOS', 'CHC', 'CHW', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAA', 'LAD', 'MIA', 'MIL', 'MIN', 'NYM', 'NYY', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'STL', 'TBR', 'TEX', 'TOR']
-#   oppTags = ['OPP_ARI', 'OPP_ATL', 'OPP_BAL', 'OPP_BOS', 'OPP_CHC', 'OPP_CHW', 'OPP_CIN', 'OPP_CLE', 'OPP_COL', 'OPP_DET', 'OPP_HOU', 'OPP_KCR', 'OPP_LAA', 'OPP_LAD', 'OPP_MIA', 'OPP_MIL', 'OPP_MIN', 'OPP_NYM', 'OPP_NYY', 'OPP_OAK', 'OPP_PHI', 'OPP_PIT', 'OPP_SDP', 'OPP_SEA', 'OPP_SFG', 'OPP_STL', 'OPP_TBR', 'OPP_TEX', 'OPP_TOR']
+  for tag in teamTags:
+    data[tag] = 0
+  data._set_value(nextHomeIndex+1, sys.argv[1], 1)
 
-#   for tag in teamTags:
-#     data[tag] = 0
-#   data._set_value(nextHomeIndex+1, sys.argv[1], 1)
+  for tag in oppTags:
+    data[tag] = 0
+  data._set_value(nextHomeIndex+1, 'OPP_' + sys.argv[2], 1)
 
-#   for tag in oppTags:
-#     data[tag] = 0
-#   data._set_value(nextHomeIndex+1, 'OPP_' + sys.argv[2], 1)
+  print("hi2")
 
 #   # Get Away Teams Next Game Data
 #   data2 = pybb.schedule_and_record(current_date.year, sys.argv[2])
