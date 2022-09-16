@@ -244,11 +244,10 @@ def inference():
 #   print(data.iloc[nextAwayIndex]) 
 #   instances = [[0.0, 20020401.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.055555555555555, 4.951345755693582, 4.944720496894409, 4.954362614611062, 4.953795721187026, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
   instances = [np.insert(data.iloc[nextHomeIndex].values, 0, 0).astype(float).tolist(), np.insert(data2.iloc[nextAwayIndex].values, 0, 0).astype(float).tolist()]
-  print(instances)
 
-#   results = predict_json("spring-board-348123", "us-central1", "mlb_ml_model", instances, "V1")
-#   print(results[0])
-#   print(results[1])
+  results = predict_json("spring-board-348123", "us-central1", "mlb_ml_model", instances, "V1")
+  print(results[0])
+  print(results[1])
 
 def predict_json(project, region, model, instances, version=None):
     prefix = "{}-ml".format(region) if region else "ml"
