@@ -227,22 +227,24 @@ def inference():
   data2.iat[nextAwayIndex, 3] = wins
   data2.iat[nextAwayIndex, 4] = losses
 
-  teamTags = ['ARI', 'ATL', 'BAL', 'BOS', 'CHC', 'CHW', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAA', 'LAD', 'MIA', 'MIL', 'MIN', 'NYM', 'NYY', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'STL', 'TBR', 'TEX', 'TOR']
-  oppTags = ['OPP_ARI', 'OPP_ATL', 'OPP_BAL', 'OPP_BOS', 'OPP_CHC', 'OPP_CHW', 'OPP_CIN', 'OPP_CLE', 'OPP_COL', 'OPP_DET', 'OPP_HOU', 'OPP_KCR', 'OPP_LAA', 'OPP_LAD', 'OPP_MIA', 'OPP_MIL', 'OPP_MIN', 'OPP_NYM', 'OPP_NYY', 'OPP_OAK', 'OPP_PHI', 'OPP_PIT', 'OPP_SDP', 'OPP_SEA', 'OPP_SFG', 'OPP_STL', 'OPP_TBR', 'OPP_TEX', 'OPP_TOR']
+print("hi")
 
-  for tag in teamTags:
-    data2[tag] = 0
-  data2._set_value(nextAwayIndex+1, sys.argv[2], 1)
+#   teamTags = ['ARI', 'ATL', 'BAL', 'BOS', 'CHC', 'CHW', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAA', 'LAD', 'MIA', 'MIL', 'MIN', 'NYM', 'NYY', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'STL', 'TBR', 'TEX', 'TOR']
+#   oppTags = ['OPP_ARI', 'OPP_ATL', 'OPP_BAL', 'OPP_BOS', 'OPP_CHC', 'OPP_CHW', 'OPP_CIN', 'OPP_CLE', 'OPP_COL', 'OPP_DET', 'OPP_HOU', 'OPP_KCR', 'OPP_LAA', 'OPP_LAD', 'OPP_MIA', 'OPP_MIL', 'OPP_MIN', 'OPP_NYM', 'OPP_NYY', 'OPP_OAK', 'OPP_PHI', 'OPP_PIT', 'OPP_SDP', 'OPP_SEA', 'OPP_SFG', 'OPP_STL', 'OPP_TBR', 'OPP_TEX', 'OPP_TOR']
 
-  for tag in oppTags:
-    data2[tag] = 0
-  data2._set_value(nextAwayIndex+1, 'OPP_' + sys.argv[1], 1)
+#   for tag in teamTags:
+#     data2[tag] = 0
+#   data2._set_value(nextAwayIndex+1, sys.argv[2], 1)
 
-#   print(data.iloc[nextHomeIndex]) 
-#   print(data.iloc[nextAwayIndex]) 
-#   instances = [[0.0, 20020401.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.055555555555555, 4.951345755693582, 4.944720496894409, 4.954362614611062, 4.953795721187026, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
-  instances = [np.insert(data.iloc[nextHomeIndex].values, 0, 0).astype(float).tolist(), np.insert(data2.iloc[nextAwayIndex].values, 0, 0).astype(float).tolist()]
-  print(instances)
+#   for tag in oppTags:
+#     data2[tag] = 0
+#   data2._set_value(nextAwayIndex+1, 'OPP_' + sys.argv[1], 1)
+
+# #   print(data.iloc[nextHomeIndex]) 
+# #   print(data.iloc[nextAwayIndex]) 
+# #   instances = [[0.0, 20020401.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.055555555555555, 4.951345755693582, 4.944720496894409, 4.954362614611062, 4.953795721187026, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+#   instances = [np.insert(data.iloc[nextHomeIndex].values, 0, 0).astype(float).tolist(), np.insert(data2.iloc[nextAwayIndex].values, 0, 0).astype(float).tolist()]
+#   print(instances)
 
 #   results = predict_json("spring-board-348123", "us-central1", "mlb_ml_model", instances, "V1")
 #   print(results[0])
