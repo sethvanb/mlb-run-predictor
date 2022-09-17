@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path")
-// const cors = require('cors');
 const PythonShell = require('python-shell').PythonShell;
 
 const PORT = process.env.PORT || 3003;
@@ -9,8 +8,6 @@ const app = express();
 
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-// app.use(cors());
 
 app.get("/api/predict", async (req, res) => {
   var options = {
@@ -44,10 +41,6 @@ app.get("/api/games", async (req, res) => {
     console.log(results);
     res.json(results);
   });
-});
-
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
 });
 
 app.get('*', (req, res) => {
