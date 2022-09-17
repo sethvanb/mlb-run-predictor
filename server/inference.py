@@ -246,7 +246,7 @@ def inference():
   instances = [np.insert(data.iloc[nextHomeIndex].values, 0, 0).astype(float).tolist(), np.insert(data2.iloc[nextAwayIndex].values, 0, 0).astype(float).tolist()]
 
   results = predict_json("spring-board-348123", "us-central1", "mlb_ml_model", instances, "V1")
-  print( results[0])
+  print(results[0])
   print(results[1])
 
 def predict_json(project, region, model, instances, version=None):
