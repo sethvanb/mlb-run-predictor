@@ -10,3 +10,6 @@ This application gets the MLB match ups for the day and lets the user select one
 * Follow [these instructions](https://devcenter.heroku.com/articles/git#for-a-new-app) to deploy the app on Heroku 
   * To perform this step you will need to have a Heroku account and you will need to install and login to the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
   * I choose Heroku because it is free but the application can be modified to work on other application deployment platforms
+* Run in terminal`heroku config:set GOOGLE_APPLICATION_CREDENTIALS=gcp-credentials.json`
+ * this will set a Config Var on your heroku app for the Google Cloud Platform credentials
+ * You may have to redeploy your heroku app after this 
